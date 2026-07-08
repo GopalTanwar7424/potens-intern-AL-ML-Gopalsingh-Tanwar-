@@ -130,3 +130,10 @@ ambiguous tickets — it always guesses.
 an expandable tree (ticket → reasoning/tool-call steps in order →
 final decision), or type in a brand new ticket and watch the agent run
 live.
+
+## Demo
+
+![Reasoning Trace Viewer](dC:\Users\gopal\Downloads\triage_agent\docs\Screenshot 2026-07-08 124449.png)
+![Reasoning Trace Viewer] (C:\Users\gopal\Downloads\triage_agent\docs\Screenshot 2026-07-08 124645.png)
+
+The Streamlit UI visualizes the full reasoning tree for each ticket, showing which tools the agent called and why.
