@@ -1,0 +1,60 @@
+{
+  "output": {
+    "ticket_id": "EX-04",
+    "input_text": "It would be amazing if you could add a dark mode option, my eyes hurt using this at night.",
+    "metadata": {
+      "customer_name": "Sam",
+      "channel": "email"
+    },
+    "category": "Feature Request",
+    "priority": "P2",
+    "next_tool": "none",
+    "reasoning": [
+      "[tool:draft_acknowledgment] input={'category': 'Feature Request', 'customer_name': 'Sam', 'priority': 'P2'} -> output={'category': 'Feature Request', 'priority': 'P2', 'draft': \"Hi Sam, thanks for your message! We've logged this Feature Request item and will follow up as soon as we can.\"}",
+      "{\n  \"category\": \"Feature Request\",\n  \"priority\": \"P2\",\n  \"next_tool\": \"none\",\n  \"why\": \"The customer asks for a dark mode option, which is a request for a new feature rather than a bug, billing issue, or security concern. There is no indication of urgency or impact on current usage, so it fits the normal queue (P2).\",\n  \"confidence\": 0.98\n}"
+    ],
+    "why": "The customer asks for a dark mode option, which is a request for a new feature rather than a bug, billing issue, or security concern. There is no indication of urgency or impact on current usage, so it fits the normal queue (P2).",
+    "confidence": 0.98,
+    "tool_calls": [
+      {
+        "tool_name": "draft_acknowledgment",
+        "tool_input": {
+          "category": "Feature Request",
+          "customer_name": "Sam",
+          "priority": "P2"
+        },
+        "tool_output": {
+          "category": "Feature Request",
+          "priority": "P2",
+          "draft": "Hi Sam, thanks for your message! We've logged this Feature Request item and will follow up as soon as we can."
+        },
+        "timestamp": 1783486944.4940498
+      }
+    ],
+    "escalated": false,
+    "engine": "groq",
+    "expected_category": "Feature Request"
+  },
+  "full_trace": [
+    {
+      "type": "tool_call",
+      "turn": 0,
+      "tool": "draft_acknowledgment",
+      "input": {
+        "category": "Feature Request",
+        "customer_name": "Sam",
+        "priority": "P2"
+      },
+      "output": {
+        "category": "Feature Request",
+        "priority": "P2",
+        "draft": "Hi Sam, thanks for your message! We've logged this Feature Request item and will follow up as soon as we can."
+      }
+    },
+    {
+      "type": "reasoning",
+      "turn": 1,
+      "text": "{\n  \"category\": \"Feature Request\",\n  \"priority\": \"P2\",\n  \"next_tool\": \"none\",\n  \"why\": \"The customer asks for a dark mode option, which is a request for a new feature rather than a bug, billing issue, or security concern. There is no indication of urgency or impact on current usage, so it fits the normal queue (P2).\",\n  \"confidence\": 0.98\n}"
+    }
+  ]
+}

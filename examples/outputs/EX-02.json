@@ -1,0 +1,105 @@
+{
+  "output": {
+    "ticket_id": "EX-02",
+    "input_text": "The app crashes every single time I try to upload a receipt photo. It's been happening for a week.",
+    "metadata": {
+      "customer_name": "Daniel",
+      "channel": "app",
+      "app_version": "4.1"
+    },
+    "category": "Technical Bug",
+    "priority": "P1",
+    "next_tool": "draft_acknowledgment",
+    "reasoning": [
+      "[tool:similar_ticket_search] input={'query': 'app crashes when uploading receipt photo'} -> output={'query': 'app crashes when uploading receipt photo', 'matches': [{'id': 'T-1002', 'text': 'The app keeps crashing every time I try to upload a photo', 'category': 'Technical Bug', 'priority': 'P1', 'resolution': 'Identified as known upload bug, advised web workaround, escalated to eng.', 'score': 0.536}, {'id': 'T-1001', 'text': 'I was charged twice for my subscription this month', 'category': 'Billing', 'priority': 'P1', 'resolution': 'Confirmed duplicate charge, refunded within 3 days.', 'score': 0.378}, {'id': 'T-1003', 'text': \"I can't log in, it says my password is wrong but I'm sure it's right\", 'category': 'Account & Security', 'priority': 'P1', 'resolution': 'Sent manual password reset link, confirmed identity via email.', 'score': 0.333}]}",
+      "{\n  \"category\": \"Technical Bug\",\n  \"priority\": \"P1\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The ticket describes a recurring crash when uploading a receipt photo, matching a known technical bug pattern. Similar past tickets were classified as Technical Bug with priority P1, indicating it is a blocking issue but not an immediate security or financial threat. Therefore we assign Technical Bug, P1.\",\n  \"confidence\": 0.95\n}"
+    ],
+    "why": "The ticket describes a recurring crash when uploading a receipt photo, matching a known technical bug pattern. Similar past tickets were classified as Technical Bug with priority P1, indicating it is a blocking issue but not an immediate security or financial threat. Therefore we assign Technical Bug, P1.",
+    "confidence": 0.95,
+    "tool_calls": [
+      {
+        "tool_name": "similar_ticket_search",
+        "tool_input": {
+          "query": "app crashes when uploading receipt photo"
+        },
+        "tool_output": {
+          "query": "app crashes when uploading receipt photo",
+          "matches": [
+            {
+              "id": "T-1002",
+              "text": "The app keeps crashing every time I try to upload a photo",
+              "category": "Technical Bug",
+              "priority": "P1",
+              "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+              "score": 0.536
+            },
+            {
+              "id": "T-1001",
+              "text": "I was charged twice for my subscription this month",
+              "category": "Billing",
+              "priority": "P1",
+              "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+              "score": 0.378
+            },
+            {
+              "id": "T-1003",
+              "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+              "category": "Account & Security",
+              "priority": "P1",
+              "resolution": "Sent manual password reset link, confirmed identity via email.",
+              "score": 0.333
+            }
+          ]
+        },
+        "timestamp": 1783486937.4871733
+      }
+    ],
+    "escalated": false,
+    "engine": "groq",
+    "expected_category": "Technical Bug"
+  },
+  "full_trace": [
+    {
+      "type": "tool_call",
+      "turn": 0,
+      "tool": "similar_ticket_search",
+      "input": {
+        "query": "app crashes when uploading receipt photo"
+      },
+      "output": {
+        "query": "app crashes when uploading receipt photo",
+        "matches": [
+          {
+            "id": "T-1002",
+            "text": "The app keeps crashing every time I try to upload a photo",
+            "category": "Technical Bug",
+            "priority": "P1",
+            "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+            "score": 0.536
+          },
+          {
+            "id": "T-1001",
+            "text": "I was charged twice for my subscription this month",
+            "category": "Billing",
+            "priority": "P1",
+            "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+            "score": 0.378
+          },
+          {
+            "id": "T-1003",
+            "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+            "category": "Account & Security",
+            "priority": "P1",
+            "resolution": "Sent manual password reset link, confirmed identity via email.",
+            "score": 0.333
+          }
+        ]
+      }
+    },
+    {
+      "type": "reasoning",
+      "turn": 1,
+      "text": "{\n  \"category\": \"Technical Bug\",\n  \"priority\": \"P1\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The ticket describes a recurring crash when uploading a receipt photo, matching a known technical bug pattern. Similar past tickets were classified as Technical Bug with priority P1, indicating it is a blocking issue but not an immediate security or financial threat. Therefore we assign Technical Bug, P1.\",\n  \"confidence\": 0.95\n}"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "ticket_id": "EX-01",
+    "text": "I was charged twice for my monthly subscription and I need this fixed ASAP.",
+    "metadata": {"customer_name": "Priya", "channel": "email"},
+    "expected_category": "Billing"
+  },
+  {
+    "ticket_id": "EX-02",
+    "text": "The app crashes every single time I try to upload a receipt photo. It's been happening for a week.",
+    "metadata": {"customer_name": "Daniel", "channel": "app", "app_version": "4.1"},
+    "expected_category": "Technical Bug"
+  },
+  {
+    "ticket_id": "EX-03",
+    "text": "Someone logged into my account from a country I've never visited. I'm scared my data is exposed.",
+    "metadata": {"customer_name": "Wei", "channel": "chat"},
+    "expected_category": "Account & Security"
+  },
+  {
+    "ticket_id": "EX-04",
+    "text": "It would be amazing if you could add a dark mode option, my eyes hurt using this at night.",
+    "metadata": {"customer_name": "Sam", "channel": "email"},
+    "expected_category": "Feature Request"
+  },
+  {
+    "ticket_id": "EX-05",
+    "text": "This is the third time this month I've had a billing problem. I am extremely frustrated and considering cancelling my plan entirely.",
+    "metadata": {"customer_name": "Alicia", "channel": "phone"},
+    "expected_category": "Complaint / Escalation"
+  },
+  {
+    "ticket_id": "EX-06",
+    "text": "How do I export all of my data as a CSV file? I can't find the option anywhere.",
+    "metadata": {"customer_name": "Tomas", "channel": "chat"},
+    "expected_category": "General Inquiry"
+  },
+  {
+    "ticket_id": "EX-07",
+    "text": "My data isn't syncing between my phone and laptop, changes on one don't show up on the other.",
+    "metadata": {"customer_name": "Grace", "channel": "app"},
+    "expected_category": "Technical Bug"
+  },
+  {
+    "ticket_id": "EX-08",
+    "text": "I forgot my password and the reset email never arrived, I've checked spam multiple times.",
+    "metadata": {"customer_name": "Omar", "channel": "email"},
+    "expected_category": "Account & Security"
+  },
+  {
+    "ticket_id": "EX-09",
+    "text": "Can you refund me for last month, I cancelled before the renewal date but was still charged.",
+    "metadata": {"customer_name": "Lena", "channel": "email"},
+    "expected_category": "Billing"
+  },
+  {
+    "ticket_id": "EX-10",
+    "text": "Just wanted to say the new update looks great, is there a changelog somewhere I can read?",
+    "metadata": {"customer_name": "Jordan", "channel": "chat"},
+    "expected_category": "General Inquiry"
+  }
+]

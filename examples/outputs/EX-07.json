@@ -1,0 +1,84 @@
+{
+  "output": {
+    "ticket_id": "EX-07",
+    "input_text": "My data isn't syncing between my phone and laptop, changes on one don't show up on the other.",
+    "metadata": {
+      "customer_name": "Grace",
+      "channel": "app"
+    },
+    "category": "Technical Bug",
+    "priority": "P1",
+    "next_tool": "draft_acknowledgment",
+    "reasoning": [
+      "[tool:kb_lookup] input={'query': 'data sync not working phone laptop changes not showing'} -> output={'query': 'data sync not working phone laptop changes not showing', 'matches': [{'id': 'KB-101', 'title': 'How to update payment method', 'category': 'Billing', 'body': 'Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.', 'score': 0.283}, {'id': 'KB-202', 'title': 'Data not syncing across devices', 'category': 'Technical Bug', 'body': 'Sync delays can occur if the account has >50k records. Force sync via Settings > Sync > Force Refresh.', 'score': 0.277}]}",
+      "[recovered decision from a malformed tool call]"
+    ],
+    "why": "KB lookup returned a known issue titled 'Data not syncing across devices' categorized as a Technical Bug, directly matching the user's description that changes on one device are not reflected on the other. This indicates a functional problem that blocks the user's workflow, warranting a P1 priority (important, needs attention within a business day).",
+    "confidence": 0.93,
+    "tool_calls": [
+      {
+        "tool_name": "kb_lookup",
+        "tool_input": {
+          "query": "data sync not working phone laptop changes not showing"
+        },
+        "tool_output": {
+          "query": "data sync not working phone laptop changes not showing",
+          "matches": [
+            {
+              "id": "KB-101",
+              "title": "How to update payment method",
+              "category": "Billing",
+              "body": "Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.",
+              "score": 0.283
+            },
+            {
+              "id": "KB-202",
+              "title": "Data not syncing across devices",
+              "category": "Technical Bug",
+              "body": "Sync delays can occur if the account has >50k records. Force sync via Settings > Sync > Force Refresh.",
+              "score": 0.277
+            }
+          ]
+        },
+        "timestamp": 1783486986.1456866
+      }
+    ],
+    "escalated": false,
+    "engine": "groq",
+    "expected_category": "Technical Bug"
+  },
+  "full_trace": [
+    {
+      "type": "tool_call",
+      "turn": 0,
+      "tool": "kb_lookup",
+      "input": {
+        "query": "data sync not working phone laptop changes not showing"
+      },
+      "output": {
+        "query": "data sync not working phone laptop changes not showing",
+        "matches": [
+          {
+            "id": "KB-101",
+            "title": "How to update payment method",
+            "category": "Billing",
+            "body": "Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.",
+            "score": 0.283
+          },
+          {
+            "id": "KB-202",
+            "title": "Data not syncing across devices",
+            "category": "Technical Bug",
+            "body": "Sync delays can occur if the account has >50k records. Force sync via Settings > Sync > Force Refresh.",
+            "score": 0.277
+          }
+        ]
+      }
+    },
+    {
+      "type": "reasoning",
+      "turn": 1,
+      "text": "[recovered decision from a malformed tool call]"
+    }
+  ]
+}

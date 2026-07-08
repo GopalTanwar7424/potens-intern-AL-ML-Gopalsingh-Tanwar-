@@ -1,0 +1,104 @@
+{
+  "output": {
+    "ticket_id": "EX-05",
+    "input_text": "This is the third time this month I've had a billing problem. I am extremely frustrated and considering cancelling my plan entirely.",
+    "metadata": {
+      "customer_name": "Alicia",
+      "channel": "phone"
+    },
+    "category": "Complaint / Escalation",
+    "priority": "P0",
+    "next_tool": "none",
+    "reasoning": [
+      "[tool:similar_ticket_search] input={'query': 'billing problem third time this month considering cancelling plan'} -> output={'query': 'billing problem third time this month considering cancelling plan', 'matches': [{'id': 'T-1006', 'text': \"This is the third time I've had this billing issue, I'm cancelling\", 'category': 'Complaint / Escalation', 'priority': 'P0', 'resolution': 'Escalated to retention specialist same day, issued goodwill credit.', 'score': 0.55}, {'id': 'T-1002', 'text': 'The app keeps crashing every time I try to upload a photo', 'category': 'Technical Bug', 'priority': 'P1', 'resolution': 'Identified as known upload bug, advised web workaround, escalated to eng.', 'score': 0.344}, {'id': 'T-1001', 'text': 'I was charged twice for my subscription this month', 'category': 'Billing', 'priority': 'P1', 'resolution': 'Confirmed duplicate charge, refunded within 3 days.', 'score': 0.33}]}",
+      "[recovered decision from a malformed tool call]"
+    ],
+    "why": "The ticket expresses repeated billing issues and an explicit threat to cancel the plan, matching a known pattern of high\u2011urgency complaints. Similar past tickets were classified as Complaint / Escalation with P0 priority due to immediate churn risk. This aligns with the definition of P0 as urgent, active harm (customer threatening to leave).",
+    "confidence": 0.93,
+    "tool_calls": [
+      {
+        "tool_name": "similar_ticket_search",
+        "tool_input": {
+          "query": "billing problem third time this month considering cancelling plan"
+        },
+        "tool_output": {
+          "query": "billing problem third time this month considering cancelling plan",
+          "matches": [
+            {
+              "id": "T-1006",
+              "text": "This is the third time I've had this billing issue, I'm cancelling",
+              "category": "Complaint / Escalation",
+              "priority": "P0",
+              "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+              "score": 0.55
+            },
+            {
+              "id": "T-1002",
+              "text": "The app keeps crashing every time I try to upload a photo",
+              "category": "Technical Bug",
+              "priority": "P1",
+              "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+              "score": 0.344
+            },
+            {
+              "id": "T-1001",
+              "text": "I was charged twice for my subscription this month",
+              "category": "Billing",
+              "priority": "P1",
+              "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+              "score": 0.33
+            }
+          ]
+        },
+        "timestamp": 1783486957.7817361
+      }
+    ],
+    "escalated": false,
+    "engine": "groq",
+    "expected_category": "Complaint / Escalation"
+  },
+  "full_trace": [
+    {
+      "type": "tool_call",
+      "turn": 0,
+      "tool": "similar_ticket_search",
+      "input": {
+        "query": "billing problem third time this month considering cancelling plan"
+      },
+      "output": {
+        "query": "billing problem third time this month considering cancelling plan",
+        "matches": [
+          {
+            "id": "T-1006",
+            "text": "This is the third time I've had this billing issue, I'm cancelling",
+            "category": "Complaint / Escalation",
+            "priority": "P0",
+            "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+            "score": 0.55
+          },
+          {
+            "id": "T-1002",
+            "text": "The app keeps crashing every time I try to upload a photo",
+            "category": "Technical Bug",
+            "priority": "P1",
+            "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+            "score": 0.344
+          },
+          {
+            "id": "T-1001",
+            "text": "I was charged twice for my subscription this month",
+            "category": "Billing",
+            "priority": "P1",
+            "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+            "score": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "type": "reasoning",
+      "turn": 1,
+      "text": "[recovered decision from a malformed tool call]"
+    }
+  ]
+}

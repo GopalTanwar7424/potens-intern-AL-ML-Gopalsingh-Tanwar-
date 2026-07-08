@@ -1,0 +1,104 @@
+{
+  "output": {
+    "ticket_id": "EX-03",
+    "input_text": "Someone logged into my account from a country I've never visited. I'm scared my data is exposed.",
+    "metadata": {
+      "customer_name": "Wei",
+      "channel": "chat"
+    },
+    "category": "Account & Security",
+    "priority": "P0",
+    "next_tool": "draft_acknowledgment",
+    "reasoning": [
+      "[tool:similar_ticket_search] input={'query': 'unauthorized login from unknown country data exposed'} -> output={'query': 'unauthorized login from unknown country data exposed', 'matches': [{'id': 'T-1004', 'text': \"Someone logged into my account from a country I've never been to\", 'category': 'Account & Security', 'priority': 'P0', 'resolution': 'Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.', 'score': 0.431}, {'id': 'T-1002', 'text': 'The app keeps crashing every time I try to upload a photo', 'category': 'Technical Bug', 'priority': 'P1', 'resolution': 'Identified as known upload bug, advised web workaround, escalated to eng.', 'score': 0.349}, {'id': 'T-1003', 'text': \"I can't log in, it says my password is wrong but I'm sure it's right\", 'category': 'Account & Security', 'priority': 'P1', 'resolution': 'Sent manual password reset link, confirmed identity via email.', 'score': 0.3}]}",
+      "{\n  \"category\": \"Account & Security\",\n  \"priority\": \"P0\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The user reports an unauthorized login from an unfamiliar country and expresses fear that their data may be exposed, which is a clear security breach scenario. Similar past tickets with the same wording were classified as Account & Security and assigned P0 priority due to immediate risk. This matches the criteria for urgent handling.\",\n  \"confidence\": 0.97\n}"
+    ],
+    "why": "The user reports an unauthorized login from an unfamiliar country and expresses fear that their data may be exposed, which is a clear security breach scenario. Similar past tickets with the same wording were classified as Account & Security and assigned P0 priority due to immediate risk. This matches the criteria for urgent handling.",
+    "confidence": 0.97,
+    "tool_calls": [
+      {
+        "tool_name": "similar_ticket_search",
+        "tool_input": {
+          "query": "unauthorized login from unknown country data exposed"
+        },
+        "tool_output": {
+          "query": "unauthorized login from unknown country data exposed",
+          "matches": [
+            {
+              "id": "T-1004",
+              "text": "Someone logged into my account from a country I've never been to",
+              "category": "Account & Security",
+              "priority": "P0",
+              "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+              "score": 0.431
+            },
+            {
+              "id": "T-1002",
+              "text": "The app keeps crashing every time I try to upload a photo",
+              "category": "Technical Bug",
+              "priority": "P1",
+              "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+              "score": 0.349
+            },
+            {
+              "id": "T-1003",
+              "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+              "category": "Account & Security",
+              "priority": "P1",
+              "resolution": "Sent manual password reset link, confirmed identity via email.",
+              "score": 0.3
+            }
+          ]
+        },
+        "timestamp": 1783486940.8608727
+      }
+    ],
+    "escalated": false,
+    "engine": "groq",
+    "expected_category": "Account & Security"
+  },
+  "full_trace": [
+    {
+      "type": "tool_call",
+      "turn": 0,
+      "tool": "similar_ticket_search",
+      "input": {
+        "query": "unauthorized login from unknown country data exposed"
+      },
+      "output": {
+        "query": "unauthorized login from unknown country data exposed",
+        "matches": [
+          {
+            "id": "T-1004",
+            "text": "Someone logged into my account from a country I've never been to",
+            "category": "Account & Security",
+            "priority": "P0",
+            "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+            "score": 0.431
+          },
+          {
+            "id": "T-1002",
+            "text": "The app keeps crashing every time I try to upload a photo",
+            "category": "Technical Bug",
+            "priority": "P1",
+            "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+            "score": 0.349
+          },
+          {
+            "id": "T-1003",
+            "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+            "category": "Account & Security",
+            "priority": "P1",
+            "resolution": "Sent manual password reset link, confirmed identity via email.",
+            "score": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "type": "reasoning",
+      "turn": 1,
+      "text": "{\n  \"category\": \"Account & Security\",\n  \"priority\": \"P0\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The user reports an unauthorized login from an unfamiliar country and expresses fear that their data may be exposed, which is a clear security breach scenario. Similar past tickets with the same wording were classified as Account & Security and assigned P0 priority due to immediate risk. This matches the criteria for urgent handling.\",\n  \"confidence\": 0.97\n}"
+    }
+  ]
+}

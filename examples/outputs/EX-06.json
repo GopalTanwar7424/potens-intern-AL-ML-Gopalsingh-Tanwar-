@@ -1,0 +1,158 @@
+{
+  "output": {
+    "ticket_id": "EX-06",
+    "input_text": "How do I export all of my data as a CSV file? I can't find the option anywhere.",
+    "metadata": {
+      "customer_name": "Tomas",
+      "channel": "chat"
+    },
+    "category": "General Inquiry",
+    "priority": "P2",
+    "next_tool": "draft_acknowledgment",
+    "reasoning": [
+      "[tool:kb_lookup] input={'query': 'export data CSV'} -> output={'query': 'export data CSV', 'matches': [{'id': 'KB-102', 'title': 'Refund policy', 'category': 'Billing', 'body': 'Refunds are issued for duplicate charges or cancellations within 14 days. Processing takes 5-7 business days.', 'score': 0.174}, {'id': 'KB-401', 'title': 'Feature request intake process', 'category': 'Feature Request', 'body': 'Feature requests are logged in the product backlog and reviewed monthly. No individual ETA is promised.', 'score': 0.134}]}",
+      "[tool:similar_ticket_search] input={'query': 'export all data CSV'} -> output={'query': 'export all data CSV', 'matches': [{'id': 'T-1007', 'text': 'How do I export my data to a CSV file?', 'category': 'General Inquiry', 'priority': 'P2', 'resolution': 'Pointed to Settings > Export, resolved in one reply.', 'score': 0.561}, {'id': 'T-1005', 'text': 'It would be great if you added dark mode', 'category': 'Feature Request', 'priority': 'P2', 'resolution': 'Logged in backlog, no immediate action.', 'score': 0.237}, {'id': 'T-1006', 'text': \"This is the third time I've had this billing issue, I'm cancelling\", 'category': 'Complaint / Escalation', 'priority': 'P0', 'resolution': 'Escalated to retention specialist same day, issued goodwill credit.', 'score': 0.235}]}",
+      "{\n  \"category\": \"General Inquiry\",\n  \"priority\": \"P2\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The ticket asks how to export data as CSV, which matches a known similar ticket classified as a General Inquiry with P2 priority. There is no indication of urgency, error, or billing/security issue, so it fits the normal query queue.\",\n  \"confidence\": 0.92\n}"
+    ],
+    "why": "The ticket asks how to export data as CSV, which matches a known similar ticket classified as a General Inquiry with P2 priority. There is no indication of urgency, error, or billing/security issue, so it fits the normal query queue.",
+    "confidence": 0.92,
+    "tool_calls": [
+      {
+        "tool_name": "kb_lookup",
+        "tool_input": {
+          "query": "export data CSV"
+        },
+        "tool_output": {
+          "query": "export data CSV",
+          "matches": [
+            {
+              "id": "KB-102",
+              "title": "Refund policy",
+              "category": "Billing",
+              "body": "Refunds are issued for duplicate charges or cancellations within 14 days. Processing takes 5-7 business days.",
+              "score": 0.174
+            },
+            {
+              "id": "KB-401",
+              "title": "Feature request intake process",
+              "category": "Feature Request",
+              "body": "Feature requests are logged in the product backlog and reviewed monthly. No individual ETA is promised.",
+              "score": 0.134
+            }
+          ]
+        },
+        "timestamp": 1783486965.7705052
+      },
+      {
+        "tool_name": "similar_ticket_search",
+        "tool_input": {
+          "query": "export all data CSV"
+        },
+        "tool_output": {
+          "query": "export all data CSV",
+          "matches": [
+            {
+              "id": "T-1007",
+              "text": "How do I export my data to a CSV file?",
+              "category": "General Inquiry",
+              "priority": "P2",
+              "resolution": "Pointed to Settings > Export, resolved in one reply.",
+              "score": 0.561
+            },
+            {
+              "id": "T-1005",
+              "text": "It would be great if you added dark mode",
+              "category": "Feature Request",
+              "priority": "P2",
+              "resolution": "Logged in backlog, no immediate action.",
+              "score": 0.237
+            },
+            {
+              "id": "T-1006",
+              "text": "This is the third time I've had this billing issue, I'm cancelling",
+              "category": "Complaint / Escalation",
+              "priority": "P0",
+              "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+              "score": 0.235
+            }
+          ]
+        },
+        "timestamp": 1783486972.8943121
+      }
+    ],
+    "escalated": false,
+    "engine": "groq",
+    "expected_category": "General Inquiry"
+  },
+  "full_trace": [
+    {
+      "type": "tool_call",
+      "turn": 0,
+      "tool": "kb_lookup",
+      "input": {
+        "query": "export data CSV"
+      },
+      "output": {
+        "query": "export data CSV",
+        "matches": [
+          {
+            "id": "KB-102",
+            "title": "Refund policy",
+            "category": "Billing",
+            "body": "Refunds are issued for duplicate charges or cancellations within 14 days. Processing takes 5-7 business days.",
+            "score": 0.174
+          },
+          {
+            "id": "KB-401",
+            "title": "Feature request intake process",
+            "category": "Feature Request",
+            "body": "Feature requests are logged in the product backlog and reviewed monthly. No individual ETA is promised.",
+            "score": 0.134
+          }
+        ]
+      }
+    },
+    {
+      "type": "tool_call",
+      "turn": 1,
+      "tool": "similar_ticket_search",
+      "input": {
+        "query": "export all data CSV"
+      },
+      "output": {
+        "query": "export all data CSV",
+        "matches": [
+          {
+            "id": "T-1007",
+            "text": "How do I export my data to a CSV file?",
+            "category": "General Inquiry",
+            "priority": "P2",
+            "resolution": "Pointed to Settings > Export, resolved in one reply.",
+            "score": 0.561
+          },
+          {
+            "id": "T-1005",
+            "text": "It would be great if you added dark mode",
+            "category": "Feature Request",
+            "priority": "P2",
+            "resolution": "Logged in backlog, no immediate action.",
+            "score": 0.237
+          },
+          {
+            "id": "T-1006",
+            "text": "This is the third time I've had this billing issue, I'm cancelling",
+            "category": "Complaint / Escalation",
+            "priority": "P0",
+            "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+            "score": 0.235
+          }
+        ]
+      }
+    },
+    {
+      "type": "reasoning",
+      "turn": 2,
+      "text": "{\n  \"category\": \"General Inquiry\",\n  \"priority\": \"P2\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The ticket asks how to export data as CSV, which matches a known similar ticket classified as a General Inquiry with P2 priority. There is no indication of urgency, error, or billing/security issue, so it fits the normal query queue.\",\n  \"confidence\": 0.92\n}"
+    }
+  ]
+}

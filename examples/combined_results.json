@@ -1,0 +1,1066 @@
+[
+  {
+    "output": {
+      "ticket_id": "EX-01",
+      "input_text": "I was charged twice for my monthly subscription and I need this fixed ASAP.",
+      "metadata": {
+        "customer_name": "Priya",
+        "channel": "email"
+      },
+      "category": "Billing",
+      "priority": "P0",
+      "next_tool": "draft_acknowledgment",
+      "reasoning": [
+        "[recovered decision from a malformed tool call]"
+      ],
+      "why": "The customer reports being charged twice for a monthly subscription, indicating a financial error and requesting immediate resolution. This constitutes money at risk and urgent remediation, matching the definition of a P0 priority. The issue clearly falls under Billing rather than technical or account security concerns.",
+      "confidence": 0.98,
+      "tool_calls": [],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "Billing"
+    },
+    "full_trace": [
+      {
+        "type": "reasoning",
+        "turn": 0,
+        "text": "[recovered decision from a malformed tool call]"
+      }
+    ]
+  },
+  {
+    "output": {
+      "ticket_id": "EX-02",
+      "input_text": "The app crashes every single time I try to upload a receipt photo. It's been happening for a week.",
+      "metadata": {
+        "customer_name": "Daniel",
+        "channel": "app",
+        "app_version": "4.1"
+      },
+      "category": "Technical Bug",
+      "priority": "P1",
+      "next_tool": "draft_acknowledgment",
+      "reasoning": [
+        "[tool:similar_ticket_search] input={'query': 'app crashes when uploading receipt photo'} -> output={'query': 'app crashes when uploading receipt photo', 'matches': [{'id': 'T-1002', 'text': 'The app keeps crashing every time I try to upload a photo', 'category': 'Technical Bug', 'priority': 'P1', 'resolution': 'Identified as known upload bug, advised web workaround, escalated to eng.', 'score': 0.536}, {'id': 'T-1001', 'text': 'I was charged twice for my subscription this month', 'category': 'Billing', 'priority': 'P1', 'resolution': 'Confirmed duplicate charge, refunded within 3 days.', 'score': 0.378}, {'id': 'T-1003', 'text': \"I can't log in, it says my password is wrong but I'm sure it's right\", 'category': 'Account & Security', 'priority': 'P1', 'resolution': 'Sent manual password reset link, confirmed identity via email.', 'score': 0.333}]}",
+        "{\n  \"category\": \"Technical Bug\",\n  \"priority\": \"P1\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The ticket describes a recurring crash when uploading a receipt photo, matching a known technical bug pattern. Similar past tickets were classified as Technical Bug with priority P1, indicating it is a blocking issue but not an immediate security or financial threat. Therefore we assign Technical Bug, P1.\",\n  \"confidence\": 0.95\n}"
+      ],
+      "why": "The ticket describes a recurring crash when uploading a receipt photo, matching a known technical bug pattern. Similar past tickets were classified as Technical Bug with priority P1, indicating it is a blocking issue but not an immediate security or financial threat. Therefore we assign Technical Bug, P1.",
+      "confidence": 0.95,
+      "tool_calls": [
+        {
+          "tool_name": "similar_ticket_search",
+          "tool_input": {
+            "query": "app crashes when uploading receipt photo"
+          },
+          "tool_output": {
+            "query": "app crashes when uploading receipt photo",
+            "matches": [
+              {
+                "id": "T-1002",
+                "text": "The app keeps crashing every time I try to upload a photo",
+                "category": "Technical Bug",
+                "priority": "P1",
+                "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+                "score": 0.536
+              },
+              {
+                "id": "T-1001",
+                "text": "I was charged twice for my subscription this month",
+                "category": "Billing",
+                "priority": "P1",
+                "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+                "score": 0.378
+              },
+              {
+                "id": "T-1003",
+                "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+                "category": "Account & Security",
+                "priority": "P1",
+                "resolution": "Sent manual password reset link, confirmed identity via email.",
+                "score": 0.333
+              }
+            ]
+          },
+          "timestamp": 1783486937.4871733
+        }
+      ],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "Technical Bug"
+    },
+    "full_trace": [
+      {
+        "type": "tool_call",
+        "turn": 0,
+        "tool": "similar_ticket_search",
+        "input": {
+          "query": "app crashes when uploading receipt photo"
+        },
+        "output": {
+          "query": "app crashes when uploading receipt photo",
+          "matches": [
+            {
+              "id": "T-1002",
+              "text": "The app keeps crashing every time I try to upload a photo",
+              "category": "Technical Bug",
+              "priority": "P1",
+              "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+              "score": 0.536
+            },
+            {
+              "id": "T-1001",
+              "text": "I was charged twice for my subscription this month",
+              "category": "Billing",
+              "priority": "P1",
+              "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+              "score": 0.378
+            },
+            {
+              "id": "T-1003",
+              "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+              "category": "Account & Security",
+              "priority": "P1",
+              "resolution": "Sent manual password reset link, confirmed identity via email.",
+              "score": 0.333
+            }
+          ]
+        }
+      },
+      {
+        "type": "reasoning",
+        "turn": 1,
+        "text": "{\n  \"category\": \"Technical Bug\",\n  \"priority\": \"P1\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The ticket describes a recurring crash when uploading a receipt photo, matching a known technical bug pattern. Similar past tickets were classified as Technical Bug with priority P1, indicating it is a blocking issue but not an immediate security or financial threat. Therefore we assign Technical Bug, P1.\",\n  \"confidence\": 0.95\n}"
+      }
+    ]
+  },
+  {
+    "output": {
+      "ticket_id": "EX-03",
+      "input_text": "Someone logged into my account from a country I've never visited. I'm scared my data is exposed.",
+      "metadata": {
+        "customer_name": "Wei",
+        "channel": "chat"
+      },
+      "category": "Account & Security",
+      "priority": "P0",
+      "next_tool": "draft_acknowledgment",
+      "reasoning": [
+        "[tool:similar_ticket_search] input={'query': 'unauthorized login from unknown country data exposed'} -> output={'query': 'unauthorized login from unknown country data exposed', 'matches': [{'id': 'T-1004', 'text': \"Someone logged into my account from a country I've never been to\", 'category': 'Account & Security', 'priority': 'P0', 'resolution': 'Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.', 'score': 0.431}, {'id': 'T-1002', 'text': 'The app keeps crashing every time I try to upload a photo', 'category': 'Technical Bug', 'priority': 'P1', 'resolution': 'Identified as known upload bug, advised web workaround, escalated to eng.', 'score': 0.349}, {'id': 'T-1003', 'text': \"I can't log in, it says my password is wrong but I'm sure it's right\", 'category': 'Account & Security', 'priority': 'P1', 'resolution': 'Sent manual password reset link, confirmed identity via email.', 'score': 0.3}]}",
+        "{\n  \"category\": \"Account & Security\",\n  \"priority\": \"P0\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The user reports an unauthorized login from an unfamiliar country and expresses fear that their data may be exposed, which is a clear security breach scenario. Similar past tickets with the same wording were classified as Account & Security and assigned P0 priority due to immediate risk. This matches the criteria for urgent handling.\",\n  \"confidence\": 0.97\n}"
+      ],
+      "why": "The user reports an unauthorized login from an unfamiliar country and expresses fear that their data may be exposed, which is a clear security breach scenario. Similar past tickets with the same wording were classified as Account & Security and assigned P0 priority due to immediate risk. This matches the criteria for urgent handling.",
+      "confidence": 0.97,
+      "tool_calls": [
+        {
+          "tool_name": "similar_ticket_search",
+          "tool_input": {
+            "query": "unauthorized login from unknown country data exposed"
+          },
+          "tool_output": {
+            "query": "unauthorized login from unknown country data exposed",
+            "matches": [
+              {
+                "id": "T-1004",
+                "text": "Someone logged into my account from a country I've never been to",
+                "category": "Account & Security",
+                "priority": "P0",
+                "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+                "score": 0.431
+              },
+              {
+                "id": "T-1002",
+                "text": "The app keeps crashing every time I try to upload a photo",
+                "category": "Technical Bug",
+                "priority": "P1",
+                "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+                "score": 0.349
+              },
+              {
+                "id": "T-1003",
+                "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+                "category": "Account & Security",
+                "priority": "P1",
+                "resolution": "Sent manual password reset link, confirmed identity via email.",
+                "score": 0.3
+              }
+            ]
+          },
+          "timestamp": 1783486940.8608727
+        }
+      ],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "Account & Security"
+    },
+    "full_trace": [
+      {
+        "type": "tool_call",
+        "turn": 0,
+        "tool": "similar_ticket_search",
+        "input": {
+          "query": "unauthorized login from unknown country data exposed"
+        },
+        "output": {
+          "query": "unauthorized login from unknown country data exposed",
+          "matches": [
+            {
+              "id": "T-1004",
+              "text": "Someone logged into my account from a country I've never been to",
+              "category": "Account & Security",
+              "priority": "P0",
+              "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+              "score": 0.431
+            },
+            {
+              "id": "T-1002",
+              "text": "The app keeps crashing every time I try to upload a photo",
+              "category": "Technical Bug",
+              "priority": "P1",
+              "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+              "score": 0.349
+            },
+            {
+              "id": "T-1003",
+              "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+              "category": "Account & Security",
+              "priority": "P1",
+              "resolution": "Sent manual password reset link, confirmed identity via email.",
+              "score": 0.3
+            }
+          ]
+        }
+      },
+      {
+        "type": "reasoning",
+        "turn": 1,
+        "text": "{\n  \"category\": \"Account & Security\",\n  \"priority\": \"P0\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The user reports an unauthorized login from an unfamiliar country and expresses fear that their data may be exposed, which is a clear security breach scenario. Similar past tickets with the same wording were classified as Account & Security and assigned P0 priority due to immediate risk. This matches the criteria for urgent handling.\",\n  \"confidence\": 0.97\n}"
+      }
+    ]
+  },
+  {
+    "output": {
+      "ticket_id": "EX-04",
+      "input_text": "It would be amazing if you could add a dark mode option, my eyes hurt using this at night.",
+      "metadata": {
+        "customer_name": "Sam",
+        "channel": "email"
+      },
+      "category": "Feature Request",
+      "priority": "P2",
+      "next_tool": "none",
+      "reasoning": [
+        "[tool:draft_acknowledgment] input={'category': 'Feature Request', 'customer_name': 'Sam', 'priority': 'P2'} -> output={'category': 'Feature Request', 'priority': 'P2', 'draft': \"Hi Sam, thanks for your message! We've logged this Feature Request item and will follow up as soon as we can.\"}",
+        "{\n  \"category\": \"Feature Request\",\n  \"priority\": \"P2\",\n  \"next_tool\": \"none\",\n  \"why\": \"The customer asks for a dark mode option, which is a request for a new feature rather than a bug, billing issue, or security concern. There is no indication of urgency or impact on current usage, so it fits the normal queue (P2).\",\n  \"confidence\": 0.98\n}"
+      ],
+      "why": "The customer asks for a dark mode option, which is a request for a new feature rather than a bug, billing issue, or security concern. There is no indication of urgency or impact on current usage, so it fits the normal queue (P2).",
+      "confidence": 0.98,
+      "tool_calls": [
+        {
+          "tool_name": "draft_acknowledgment",
+          "tool_input": {
+            "category": "Feature Request",
+            "customer_name": "Sam",
+            "priority": "P2"
+          },
+          "tool_output": {
+            "category": "Feature Request",
+            "priority": "P2",
+            "draft": "Hi Sam, thanks for your message! We've logged this Feature Request item and will follow up as soon as we can."
+          },
+          "timestamp": 1783486944.4940498
+        }
+      ],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "Feature Request"
+    },
+    "full_trace": [
+      {
+        "type": "tool_call",
+        "turn": 0,
+        "tool": "draft_acknowledgment",
+        "input": {
+          "category": "Feature Request",
+          "customer_name": "Sam",
+          "priority": "P2"
+        },
+        "output": {
+          "category": "Feature Request",
+          "priority": "P2",
+          "draft": "Hi Sam, thanks for your message! We've logged this Feature Request item and will follow up as soon as we can."
+        }
+      },
+      {
+        "type": "reasoning",
+        "turn": 1,
+        "text": "{\n  \"category\": \"Feature Request\",\n  \"priority\": \"P2\",\n  \"next_tool\": \"none\",\n  \"why\": \"The customer asks for a dark mode option, which is a request for a new feature rather than a bug, billing issue, or security concern. There is no indication of urgency or impact on current usage, so it fits the normal queue (P2).\",\n  \"confidence\": 0.98\n}"
+      }
+    ]
+  },
+  {
+    "output": {
+      "ticket_id": "EX-05",
+      "input_text": "This is the third time this month I've had a billing problem. I am extremely frustrated and considering cancelling my plan entirely.",
+      "metadata": {
+        "customer_name": "Alicia",
+        "channel": "phone"
+      },
+      "category": "Complaint / Escalation",
+      "priority": "P0",
+      "next_tool": "none",
+      "reasoning": [
+        "[tool:similar_ticket_search] input={'query': 'billing problem third time this month considering cancelling plan'} -> output={'query': 'billing problem third time this month considering cancelling plan', 'matches': [{'id': 'T-1006', 'text': \"This is the third time I've had this billing issue, I'm cancelling\", 'category': 'Complaint / Escalation', 'priority': 'P0', 'resolution': 'Escalated to retention specialist same day, issued goodwill credit.', 'score': 0.55}, {'id': 'T-1002', 'text': 'The app keeps crashing every time I try to upload a photo', 'category': 'Technical Bug', 'priority': 'P1', 'resolution': 'Identified as known upload bug, advised web workaround, escalated to eng.', 'score': 0.344}, {'id': 'T-1001', 'text': 'I was charged twice for my subscription this month', 'category': 'Billing', 'priority': 'P1', 'resolution': 'Confirmed duplicate charge, refunded within 3 days.', 'score': 0.33}]}",
+        "[recovered decision from a malformed tool call]"
+      ],
+      "why": "The ticket expresses repeated billing issues and an explicit threat to cancel the plan, matching a known pattern of high\u2011urgency complaints. Similar past tickets were classified as Complaint / Escalation with P0 priority due to immediate churn risk. This aligns with the definition of P0 as urgent, active harm (customer threatening to leave).",
+      "confidence": 0.93,
+      "tool_calls": [
+        {
+          "tool_name": "similar_ticket_search",
+          "tool_input": {
+            "query": "billing problem third time this month considering cancelling plan"
+          },
+          "tool_output": {
+            "query": "billing problem third time this month considering cancelling plan",
+            "matches": [
+              {
+                "id": "T-1006",
+                "text": "This is the third time I've had this billing issue, I'm cancelling",
+                "category": "Complaint / Escalation",
+                "priority": "P0",
+                "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+                "score": 0.55
+              },
+              {
+                "id": "T-1002",
+                "text": "The app keeps crashing every time I try to upload a photo",
+                "category": "Technical Bug",
+                "priority": "P1",
+                "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+                "score": 0.344
+              },
+              {
+                "id": "T-1001",
+                "text": "I was charged twice for my subscription this month",
+                "category": "Billing",
+                "priority": "P1",
+                "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+                "score": 0.33
+              }
+            ]
+          },
+          "timestamp": 1783486957.7817361
+        }
+      ],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "Complaint / Escalation"
+    },
+    "full_trace": [
+      {
+        "type": "tool_call",
+        "turn": 0,
+        "tool": "similar_ticket_search",
+        "input": {
+          "query": "billing problem third time this month considering cancelling plan"
+        },
+        "output": {
+          "query": "billing problem third time this month considering cancelling plan",
+          "matches": [
+            {
+              "id": "T-1006",
+              "text": "This is the third time I've had this billing issue, I'm cancelling",
+              "category": "Complaint / Escalation",
+              "priority": "P0",
+              "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+              "score": 0.55
+            },
+            {
+              "id": "T-1002",
+              "text": "The app keeps crashing every time I try to upload a photo",
+              "category": "Technical Bug",
+              "priority": "P1",
+              "resolution": "Identified as known upload bug, advised web workaround, escalated to eng.",
+              "score": 0.344
+            },
+            {
+              "id": "T-1001",
+              "text": "I was charged twice for my subscription this month",
+              "category": "Billing",
+              "priority": "P1",
+              "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+              "score": 0.33
+            }
+          ]
+        }
+      },
+      {
+        "type": "reasoning",
+        "turn": 1,
+        "text": "[recovered decision from a malformed tool call]"
+      }
+    ]
+  },
+  {
+    "output": {
+      "ticket_id": "EX-06",
+      "input_text": "How do I export all of my data as a CSV file? I can't find the option anywhere.",
+      "metadata": {
+        "customer_name": "Tomas",
+        "channel": "chat"
+      },
+      "category": "General Inquiry",
+      "priority": "P2",
+      "next_tool": "draft_acknowledgment",
+      "reasoning": [
+        "[tool:kb_lookup] input={'query': 'export data CSV'} -> output={'query': 'export data CSV', 'matches': [{'id': 'KB-102', 'title': 'Refund policy', 'category': 'Billing', 'body': 'Refunds are issued for duplicate charges or cancellations within 14 days. Processing takes 5-7 business days.', 'score': 0.174}, {'id': 'KB-401', 'title': 'Feature request intake process', 'category': 'Feature Request', 'body': 'Feature requests are logged in the product backlog and reviewed monthly. No individual ETA is promised.', 'score': 0.134}]}",
+        "[tool:similar_ticket_search] input={'query': 'export all data CSV'} -> output={'query': 'export all data CSV', 'matches': [{'id': 'T-1007', 'text': 'How do I export my data to a CSV file?', 'category': 'General Inquiry', 'priority': 'P2', 'resolution': 'Pointed to Settings > Export, resolved in one reply.', 'score': 0.561}, {'id': 'T-1005', 'text': 'It would be great if you added dark mode', 'category': 'Feature Request', 'priority': 'P2', 'resolution': 'Logged in backlog, no immediate action.', 'score': 0.237}, {'id': 'T-1006', 'text': \"This is the third time I've had this billing issue, I'm cancelling\", 'category': 'Complaint / Escalation', 'priority': 'P0', 'resolution': 'Escalated to retention specialist same day, issued goodwill credit.', 'score': 0.235}]}",
+        "{\n  \"category\": \"General Inquiry\",\n  \"priority\": \"P2\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The ticket asks how to export data as CSV, which matches a known similar ticket classified as a General Inquiry with P2 priority. There is no indication of urgency, error, or billing/security issue, so it fits the normal query queue.\",\n  \"confidence\": 0.92\n}"
+      ],
+      "why": "The ticket asks how to export data as CSV, which matches a known similar ticket classified as a General Inquiry with P2 priority. There is no indication of urgency, error, or billing/security issue, so it fits the normal query queue.",
+      "confidence": 0.92,
+      "tool_calls": [
+        {
+          "tool_name": "kb_lookup",
+          "tool_input": {
+            "query": "export data CSV"
+          },
+          "tool_output": {
+            "query": "export data CSV",
+            "matches": [
+              {
+                "id": "KB-102",
+                "title": "Refund policy",
+                "category": "Billing",
+                "body": "Refunds are issued for duplicate charges or cancellations within 14 days. Processing takes 5-7 business days.",
+                "score": 0.174
+              },
+              {
+                "id": "KB-401",
+                "title": "Feature request intake process",
+                "category": "Feature Request",
+                "body": "Feature requests are logged in the product backlog and reviewed monthly. No individual ETA is promised.",
+                "score": 0.134
+              }
+            ]
+          },
+          "timestamp": 1783486965.7705052
+        },
+        {
+          "tool_name": "similar_ticket_search",
+          "tool_input": {
+            "query": "export all data CSV"
+          },
+          "tool_output": {
+            "query": "export all data CSV",
+            "matches": [
+              {
+                "id": "T-1007",
+                "text": "How do I export my data to a CSV file?",
+                "category": "General Inquiry",
+                "priority": "P2",
+                "resolution": "Pointed to Settings > Export, resolved in one reply.",
+                "score": 0.561
+              },
+              {
+                "id": "T-1005",
+                "text": "It would be great if you added dark mode",
+                "category": "Feature Request",
+                "priority": "P2",
+                "resolution": "Logged in backlog, no immediate action.",
+                "score": 0.237
+              },
+              {
+                "id": "T-1006",
+                "text": "This is the third time I've had this billing issue, I'm cancelling",
+                "category": "Complaint / Escalation",
+                "priority": "P0",
+                "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+                "score": 0.235
+              }
+            ]
+          },
+          "timestamp": 1783486972.8943121
+        }
+      ],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "General Inquiry"
+    },
+    "full_trace": [
+      {
+        "type": "tool_call",
+        "turn": 0,
+        "tool": "kb_lookup",
+        "input": {
+          "query": "export data CSV"
+        },
+        "output": {
+          "query": "export data CSV",
+          "matches": [
+            {
+              "id": "KB-102",
+              "title": "Refund policy",
+              "category": "Billing",
+              "body": "Refunds are issued for duplicate charges or cancellations within 14 days. Processing takes 5-7 business days.",
+              "score": 0.174
+            },
+            {
+              "id": "KB-401",
+              "title": "Feature request intake process",
+              "category": "Feature Request",
+              "body": "Feature requests are logged in the product backlog and reviewed monthly. No individual ETA is promised.",
+              "score": 0.134
+            }
+          ]
+        }
+      },
+      {
+        "type": "tool_call",
+        "turn": 1,
+        "tool": "similar_ticket_search",
+        "input": {
+          "query": "export all data CSV"
+        },
+        "output": {
+          "query": "export all data CSV",
+          "matches": [
+            {
+              "id": "T-1007",
+              "text": "How do I export my data to a CSV file?",
+              "category": "General Inquiry",
+              "priority": "P2",
+              "resolution": "Pointed to Settings > Export, resolved in one reply.",
+              "score": 0.561
+            },
+            {
+              "id": "T-1005",
+              "text": "It would be great if you added dark mode",
+              "category": "Feature Request",
+              "priority": "P2",
+              "resolution": "Logged in backlog, no immediate action.",
+              "score": 0.237
+            },
+            {
+              "id": "T-1006",
+              "text": "This is the third time I've had this billing issue, I'm cancelling",
+              "category": "Complaint / Escalation",
+              "priority": "P0",
+              "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+              "score": 0.235
+            }
+          ]
+        }
+      },
+      {
+        "type": "reasoning",
+        "turn": 2,
+        "text": "{\n  \"category\": \"General Inquiry\",\n  \"priority\": \"P2\",\n  \"next_tool\": \"draft_acknowledgment\",\n  \"why\": \"The ticket asks how to export data as CSV, which matches a known similar ticket classified as a General Inquiry with P2 priority. There is no indication of urgency, error, or billing/security issue, so it fits the normal query queue.\",\n  \"confidence\": 0.92\n}"
+      }
+    ]
+  },
+  {
+    "output": {
+      "ticket_id": "EX-07",
+      "input_text": "My data isn't syncing between my phone and laptop, changes on one don't show up on the other.",
+      "metadata": {
+        "customer_name": "Grace",
+        "channel": "app"
+      },
+      "category": "Technical Bug",
+      "priority": "P1",
+      "next_tool": "draft_acknowledgment",
+      "reasoning": [
+        "[tool:kb_lookup] input={'query': 'data sync not working phone laptop changes not showing'} -> output={'query': 'data sync not working phone laptop changes not showing', 'matches': [{'id': 'KB-101', 'title': 'How to update payment method', 'category': 'Billing', 'body': 'Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.', 'score': 0.283}, {'id': 'KB-202', 'title': 'Data not syncing across devices', 'category': 'Technical Bug', 'body': 'Sync delays can occur if the account has >50k records. Force sync via Settings > Sync > Force Refresh.', 'score': 0.277}]}",
+        "[recovered decision from a malformed tool call]"
+      ],
+      "why": "KB lookup returned a known issue titled 'Data not syncing across devices' categorized as a Technical Bug, directly matching the user's description that changes on one device are not reflected on the other. This indicates a functional problem that blocks the user's workflow, warranting a P1 priority (important, needs attention within a business day).",
+      "confidence": 0.93,
+      "tool_calls": [
+        {
+          "tool_name": "kb_lookup",
+          "tool_input": {
+            "query": "data sync not working phone laptop changes not showing"
+          },
+          "tool_output": {
+            "query": "data sync not working phone laptop changes not showing",
+            "matches": [
+              {
+                "id": "KB-101",
+                "title": "How to update payment method",
+                "category": "Billing",
+                "body": "Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.",
+                "score": 0.283
+              },
+              {
+                "id": "KB-202",
+                "title": "Data not syncing across devices",
+                "category": "Technical Bug",
+                "body": "Sync delays can occur if the account has >50k records. Force sync via Settings > Sync > Force Refresh.",
+                "score": 0.277
+              }
+            ]
+          },
+          "timestamp": 1783486986.1456866
+        }
+      ],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "Technical Bug"
+    },
+    "full_trace": [
+      {
+        "type": "tool_call",
+        "turn": 0,
+        "tool": "kb_lookup",
+        "input": {
+          "query": "data sync not working phone laptop changes not showing"
+        },
+        "output": {
+          "query": "data sync not working phone laptop changes not showing",
+          "matches": [
+            {
+              "id": "KB-101",
+              "title": "How to update payment method",
+              "category": "Billing",
+              "body": "Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.",
+              "score": 0.283
+            },
+            {
+              "id": "KB-202",
+              "title": "Data not syncing across devices",
+              "category": "Technical Bug",
+              "body": "Sync delays can occur if the account has >50k records. Force sync via Settings > Sync > Force Refresh.",
+              "score": 0.277
+            }
+          ]
+        }
+      },
+      {
+        "type": "reasoning",
+        "turn": 1,
+        "text": "[recovered decision from a malformed tool call]"
+      }
+    ]
+  },
+  {
+    "output": {
+      "ticket_id": "EX-08",
+      "input_text": "I forgot my password and the reset email never arrived, I've checked spam multiple times.",
+      "metadata": {
+        "customer_name": "Omar",
+        "channel": "email"
+      },
+      "category": "Account & Security",
+      "priority": "P1",
+      "next_tool": "none",
+      "reasoning": [
+        "[tool:kb_lookup] input={'query': 'password reset email not received'} -> output={'query': 'password reset email not received', 'matches': [{'id': 'KB-301', 'title': 'Password reset flow', 'category': 'Account & Security', 'body': 'Reset link is emailed and expires in 30 minutes. If not received, check spam or request a manual reset from support.', 'score': 0.391}, {'id': 'KB-101', 'title': 'How to update payment method', 'category': 'Billing', 'body': 'Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.', 'score': 0.27}]}",
+        "[tool:similar_ticket_search] input={'query': 'forgot password reset email never arrived'} -> output={'query': 'forgot password reset email never arrived', 'matches': [{'id': 'T-1005', 'text': 'It would be great if you added dark mode', 'category': 'Feature Request', 'priority': 'P2', 'resolution': 'Logged in backlog, no immediate action.', 'score': 0.395}, {'id': 'T-1003', 'text': \"I can't log in, it says my password is wrong but I'm sure it's right\", 'category': 'Account & Security', 'priority': 'P1', 'resolution': 'Sent manual password reset link, confirmed identity via email.', 'score': 0.349}, {'id': 'T-1004', 'text': \"Someone logged into my account from a country I've never been to\", 'category': 'Account & Security', 'priority': 'P0', 'resolution': 'Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.', 'score': 0.343}]}",
+        "[recovered decision from a malformed tool call]"
+      ],
+      "why": "The user cannot access their account because the password reset email was not received, which blocks login. This matches a known Account & Security issue and a similar past ticket (T-1003) that was classified as P1. The problem is important but not an immediate security breach or data loss, so P1 is appropriate.",
+      "confidence": 0.96,
+      "tool_calls": [
+        {
+          "tool_name": "kb_lookup",
+          "tool_input": {
+            "query": "password reset email not received"
+          },
+          "tool_output": {
+            "query": "password reset email not received",
+            "matches": [
+              {
+                "id": "KB-301",
+                "title": "Password reset flow",
+                "category": "Account & Security",
+                "body": "Reset link is emailed and expires in 30 minutes. If not received, check spam or request a manual reset from support.",
+                "score": 0.391
+              },
+              {
+                "id": "KB-101",
+                "title": "How to update payment method",
+                "category": "Billing",
+                "body": "Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.",
+                "score": 0.27
+              }
+            ]
+          },
+          "timestamp": 1783487000.4723604
+        },
+        {
+          "tool_name": "similar_ticket_search",
+          "tool_input": {
+            "query": "forgot password reset email never arrived"
+          },
+          "tool_output": {
+            "query": "forgot password reset email never arrived",
+            "matches": [
+              {
+                "id": "T-1005",
+                "text": "It would be great if you added dark mode",
+                "category": "Feature Request",
+                "priority": "P2",
+                "resolution": "Logged in backlog, no immediate action.",
+                "score": 0.395
+              },
+              {
+                "id": "T-1003",
+                "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+                "category": "Account & Security",
+                "priority": "P1",
+                "resolution": "Sent manual password reset link, confirmed identity via email.",
+                "score": 0.349
+              },
+              {
+                "id": "T-1004",
+                "text": "Someone logged into my account from a country I've never been to",
+                "category": "Account & Security",
+                "priority": "P0",
+                "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+                "score": 0.343
+              }
+            ]
+          },
+          "timestamp": 1783487008.3042512
+        }
+      ],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "Account & Security"
+    },
+    "full_trace": [
+      {
+        "type": "tool_call",
+        "turn": 0,
+        "tool": "kb_lookup",
+        "input": {
+          "query": "password reset email not received"
+        },
+        "output": {
+          "query": "password reset email not received",
+          "matches": [
+            {
+              "id": "KB-301",
+              "title": "Password reset flow",
+              "category": "Account & Security",
+              "body": "Reset link is emailed and expires in 30 minutes. If not received, check spam or request a manual reset from support.",
+              "score": 0.391
+            },
+            {
+              "id": "KB-101",
+              "title": "How to update payment method",
+              "category": "Billing",
+              "body": "Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.",
+              "score": 0.27
+            }
+          ]
+        }
+      },
+      {
+        "type": "tool_call",
+        "turn": 1,
+        "tool": "similar_ticket_search",
+        "input": {
+          "query": "forgot password reset email never arrived"
+        },
+        "output": {
+          "query": "forgot password reset email never arrived",
+          "matches": [
+            {
+              "id": "T-1005",
+              "text": "It would be great if you added dark mode",
+              "category": "Feature Request",
+              "priority": "P2",
+              "resolution": "Logged in backlog, no immediate action.",
+              "score": 0.395
+            },
+            {
+              "id": "T-1003",
+              "text": "I can't log in, it says my password is wrong but I'm sure it's right",
+              "category": "Account & Security",
+              "priority": "P1",
+              "resolution": "Sent manual password reset link, confirmed identity via email.",
+              "score": 0.349
+            },
+            {
+              "id": "T-1004",
+              "text": "Someone logged into my account from a country I've never been to",
+              "category": "Account & Security",
+              "priority": "P0",
+              "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+              "score": 0.343
+            }
+          ]
+        }
+      },
+      {
+        "type": "reasoning",
+        "turn": 2,
+        "text": "[recovered decision from a malformed tool call]"
+      }
+    ]
+  },
+  {
+    "output": {
+      "ticket_id": "EX-09",
+      "input_text": "Can you refund me for last month, I cancelled before the renewal date but was still charged.",
+      "metadata": {
+        "customer_name": "Lena",
+        "channel": "email"
+      },
+      "category": "Billing",
+      "priority": "P1",
+      "next_tool": "none",
+      "reasoning": [
+        "[tool:similar_ticket_search] input={'query': 'refund cancelled before renewal still charged'} -> output={'query': 'refund cancelled before renewal still charged', 'matches': [{'id': 'T-1005', 'text': 'It would be great if you added dark mode', 'category': 'Feature Request', 'priority': 'P2', 'resolution': 'Logged in backlog, no immediate action.', 'score': 0.329}, {'id': 'T-1001', 'text': 'I was charged twice for my subscription this month', 'category': 'Billing', 'priority': 'P1', 'resolution': 'Confirmed duplicate charge, refunded within 3 days.', 'score': 0.253}, {'id': 'T-1004', 'text': \"Someone logged into my account from a country I've never been to\", 'category': 'Account & Security', 'priority': 'P0', 'resolution': 'Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.', 'score': 0.239}]}",
+        "[recovered decision from a malformed tool call]"
+      ],
+      "why": "The ticket requests a refund for a charge that occurred after the customer cancelled before the renewal date, which is a billing dispute. Similar past tickets about incorrect charges were categorized as Billing with priority P1, indicating it is important but not an immediate security or service outage, so we assign P1. No threat of churn or active harm was expressed.",
+      "confidence": 0.96,
+      "tool_calls": [
+        {
+          "tool_name": "similar_ticket_search",
+          "tool_input": {
+            "query": "refund cancelled before renewal still charged"
+          },
+          "tool_output": {
+            "query": "refund cancelled before renewal still charged",
+            "matches": [
+              {
+                "id": "T-1005",
+                "text": "It would be great if you added dark mode",
+                "category": "Feature Request",
+                "priority": "P2",
+                "resolution": "Logged in backlog, no immediate action.",
+                "score": 0.329
+              },
+              {
+                "id": "T-1001",
+                "text": "I was charged twice for my subscription this month",
+                "category": "Billing",
+                "priority": "P1",
+                "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+                "score": 0.253
+              },
+              {
+                "id": "T-1004",
+                "text": "Someone logged into my account from a country I've never been to",
+                "category": "Account & Security",
+                "priority": "P0",
+                "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+                "score": 0.239
+              }
+            ]
+          },
+          "timestamp": 1783487021.533154
+        }
+      ],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "Billing"
+    },
+    "full_trace": [
+      {
+        "type": "tool_call",
+        "turn": 0,
+        "tool": "similar_ticket_search",
+        "input": {
+          "query": "refund cancelled before renewal still charged"
+        },
+        "output": {
+          "query": "refund cancelled before renewal still charged",
+          "matches": [
+            {
+              "id": "T-1005",
+              "text": "It would be great if you added dark mode",
+              "category": "Feature Request",
+              "priority": "P2",
+              "resolution": "Logged in backlog, no immediate action.",
+              "score": 0.329
+            },
+            {
+              "id": "T-1001",
+              "text": "I was charged twice for my subscription this month",
+              "category": "Billing",
+              "priority": "P1",
+              "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+              "score": 0.253
+            },
+            {
+              "id": "T-1004",
+              "text": "Someone logged into my account from a country I've never been to",
+              "category": "Account & Security",
+              "priority": "P0",
+              "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+              "score": 0.239
+            }
+          ]
+        }
+      },
+      {
+        "type": "reasoning",
+        "turn": 1,
+        "text": "[recovered decision from a malformed tool call]"
+      }
+    ]
+  },
+  {
+    "output": {
+      "ticket_id": "EX-10",
+      "input_text": "Just wanted to say the new update looks great, is there a changelog somewhere I can read?",
+      "metadata": {
+        "customer_name": "Jordan",
+        "channel": "chat"
+      },
+      "category": "General Inquiry",
+      "priority": "P2",
+      "next_tool": "none",
+      "reasoning": [
+        "[tool:kb_lookup] input={'query': 'changelog new update where can I read'} -> output={'query': 'changelog new update where can I read', 'matches': [{'id': 'KB-102', 'title': 'Refund policy', 'category': 'Billing', 'body': 'Refunds are issued for duplicate charges or cancellations within 14 days. Processing takes 5-7 business days.', 'score': 0.312}, {'id': 'KB-101', 'title': 'How to update payment method', 'category': 'Billing', 'body': 'Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.', 'score': 0.287}]}",
+        "[tool:similar_ticket_search] input={'query': 'Just wanted to say the new update looks great, is there a changelog somewhere I can read?'} -> output={'query': 'Just wanted to say the new update looks great, is there a changelog somewhere I can read?', 'matches': [{'id': 'T-1005', 'text': 'It would be great if you added dark mode', 'category': 'Feature Request', 'priority': 'P2', 'resolution': 'Logged in backlog, no immediate action.', 'score': 0.31}, {'id': 'T-1004', 'text': \"Someone logged into my account from a country I've never been to\", 'category': 'Account & Security', 'priority': 'P0', 'resolution': 'Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.', 'score': 0.275}, {'id': 'T-1006', 'text': \"This is the third time I've had this billing issue, I'm cancelling\", 'category': 'Complaint / Escalation', 'priority': 'P0', 'resolution': 'Escalated to retention specialist same day, issued goodwill credit.', 'score': 0.271}]}",
+        "[recovered decision from a malformed tool call]"
+      ],
+      "why": "The customer is simply asking for a changelog of the new update, which is a non\u2011urgent informational request. This fits the General Inquiry category and does not block any functionality, so it receives a normal P2 priority.",
+      "confidence": 0.94,
+      "tool_calls": [
+        {
+          "tool_name": "kb_lookup",
+          "tool_input": {
+            "query": "changelog new update where can I read"
+          },
+          "tool_output": {
+            "query": "changelog new update where can I read",
+            "matches": [
+              {
+                "id": "KB-102",
+                "title": "Refund policy",
+                "category": "Billing",
+                "body": "Refunds are issued for duplicate charges or cancellations within 14 days. Processing takes 5-7 business days.",
+                "score": 0.312
+              },
+              {
+                "id": "KB-101",
+                "title": "How to update payment method",
+                "category": "Billing",
+                "body": "Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.",
+                "score": 0.287
+              }
+            ]
+          },
+          "timestamp": 1783487034.423015
+        },
+        {
+          "tool_name": "similar_ticket_search",
+          "tool_input": {
+            "query": "Just wanted to say the new update looks great, is there a changelog somewhere I can read?"
+          },
+          "tool_output": {
+            "query": "Just wanted to say the new update looks great, is there a changelog somewhere I can read?",
+            "matches": [
+              {
+                "id": "T-1005",
+                "text": "It would be great if you added dark mode",
+                "category": "Feature Request",
+                "priority": "P2",
+                "resolution": "Logged in backlog, no immediate action.",
+                "score": 0.31
+              },
+              {
+                "id": "T-1004",
+                "text": "Someone logged into my account from a country I've never been to",
+                "category": "Account & Security",
+                "priority": "P0",
+                "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+                "score": 0.275
+              },
+              {
+                "id": "T-1006",
+                "text": "This is the third time I've had this billing issue, I'm cancelling",
+                "category": "Complaint / Escalation",
+                "priority": "P0",
+                "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+                "score": 0.271
+              }
+            ]
+          },
+          "timestamp": 1783487037.2998757
+        }
+      ],
+      "escalated": false,
+      "engine": "groq",
+      "expected_category": "General Inquiry"
+    },
+    "full_trace": [
+      {
+        "type": "tool_call",
+        "turn": 0,
+        "tool": "kb_lookup",
+        "input": {
+          "query": "changelog new update where can I read"
+        },
+        "output": {
+          "query": "changelog new update where can I read",
+          "matches": [
+            {
+              "id": "KB-102",
+              "title": "Refund policy",
+              "category": "Billing",
+              "body": "Refunds are issued for duplicate charges or cancellations within 14 days. Processing takes 5-7 business days.",
+              "score": 0.312
+            },
+            {
+              "id": "KB-101",
+              "title": "How to update payment method",
+              "category": "Billing",
+              "body": "Customers can update their card in Settings > Billing. Failed charges auto-retry 3 times over 5 days.",
+              "score": 0.287
+            }
+          ]
+        }
+      },
+      {
+        "type": "tool_call",
+        "turn": 1,
+        "tool": "similar_ticket_search",
+        "input": {
+          "query": "Just wanted to say the new update looks great, is there a changelog somewhere I can read?"
+        },
+        "output": {
+          "query": "Just wanted to say the new update looks great, is there a changelog somewhere I can read?",
+          "matches": [
+            {
+              "id": "T-1005",
+              "text": "It would be great if you added dark mode",
+              "category": "Feature Request",
+              "priority": "P2",
+              "resolution": "Logged in backlog, no immediate action.",
+              "score": 0.31
+            },
+            {
+              "id": "T-1004",
+              "text": "Someone logged into my account from a country I've never been to",
+              "category": "Account & Security",
+              "priority": "P0",
+              "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+              "score": 0.275
+            },
+            {
+              "id": "T-1006",
+              "text": "This is the third time I've had this billing issue, I'm cancelling",
+              "category": "Complaint / Escalation",
+              "priority": "P0",
+              "resolution": "Escalated to retention specialist same day, issued goodwill credit.",
+              "score": 0.271
+            }
+          ]
+        }
+      },
+      {
+        "type": "reasoning",
+        "turn": 2,
+        "text": "[recovered decision from a malformed tool call]"
+      }
+    ]
+  }
+]

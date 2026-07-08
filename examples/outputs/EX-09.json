@@ -1,0 +1,104 @@
+{
+  "output": {
+    "ticket_id": "EX-09",
+    "input_text": "Can you refund me for last month, I cancelled before the renewal date but was still charged.",
+    "metadata": {
+      "customer_name": "Lena",
+      "channel": "email"
+    },
+    "category": "Billing",
+    "priority": "P1",
+    "next_tool": "none",
+    "reasoning": [
+      "[tool:similar_ticket_search] input={'query': 'refund cancelled before renewal still charged'} -> output={'query': 'refund cancelled before renewal still charged', 'matches': [{'id': 'T-1005', 'text': 'It would be great if you added dark mode', 'category': 'Feature Request', 'priority': 'P2', 'resolution': 'Logged in backlog, no immediate action.', 'score': 0.329}, {'id': 'T-1001', 'text': 'I was charged twice for my subscription this month', 'category': 'Billing', 'priority': 'P1', 'resolution': 'Confirmed duplicate charge, refunded within 3 days.', 'score': 0.253}, {'id': 'T-1004', 'text': \"Someone logged into my account from a country I've never been to\", 'category': 'Account & Security', 'priority': 'P0', 'resolution': 'Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.', 'score': 0.239}]}",
+      "[recovered decision from a malformed tool call]"
+    ],
+    "why": "The ticket requests a refund for a charge that occurred after the customer cancelled before the renewal date, which is a billing dispute. Similar past tickets about incorrect charges were categorized as Billing with priority P1, indicating it is important but not an immediate security or service outage, so we assign P1. No threat of churn or active harm was expressed.",
+    "confidence": 0.96,
+    "tool_calls": [
+      {
+        "tool_name": "similar_ticket_search",
+        "tool_input": {
+          "query": "refund cancelled before renewal still charged"
+        },
+        "tool_output": {
+          "query": "refund cancelled before renewal still charged",
+          "matches": [
+            {
+              "id": "T-1005",
+              "text": "It would be great if you added dark mode",
+              "category": "Feature Request",
+              "priority": "P2",
+              "resolution": "Logged in backlog, no immediate action.",
+              "score": 0.329
+            },
+            {
+              "id": "T-1001",
+              "text": "I was charged twice for my subscription this month",
+              "category": "Billing",
+              "priority": "P1",
+              "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+              "score": 0.253
+            },
+            {
+              "id": "T-1004",
+              "text": "Someone logged into my account from a country I've never been to",
+              "category": "Account & Security",
+              "priority": "P0",
+              "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+              "score": 0.239
+            }
+          ]
+        },
+        "timestamp": 1783487021.533154
+      }
+    ],
+    "escalated": false,
+    "engine": "groq",
+    "expected_category": "Billing"
+  },
+  "full_trace": [
+    {
+      "type": "tool_call",
+      "turn": 0,
+      "tool": "similar_ticket_search",
+      "input": {
+        "query": "refund cancelled before renewal still charged"
+      },
+      "output": {
+        "query": "refund cancelled before renewal still charged",
+        "matches": [
+          {
+            "id": "T-1005",
+            "text": "It would be great if you added dark mode",
+            "category": "Feature Request",
+            "priority": "P2",
+            "resolution": "Logged in backlog, no immediate action.",
+            "score": 0.329
+          },
+          {
+            "id": "T-1001",
+            "text": "I was charged twice for my subscription this month",
+            "category": "Billing",
+            "priority": "P1",
+            "resolution": "Confirmed duplicate charge, refunded within 3 days.",
+            "score": 0.253
+          },
+          {
+            "id": "T-1004",
+            "text": "Someone logged into my account from a country I've never been to",
+            "category": "Account & Security",
+            "priority": "P0",
+            "resolution": "Forced logout of all sessions, reset password, enabled 2FA, escalated to security team.",
+            "score": 0.239
+          }
+        ]
+      }
+    },
+    {
+      "type": "reasoning",
+      "turn": 1,
+      "text": "[recovered decision from a malformed tool call]"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "output": {
+    "ticket_id": "EX-01",
+    "input_text": "I was charged twice for my monthly subscription and I need this fixed ASAP.",
+    "metadata": {
+      "customer_name": "Priya",
+      "channel": "email"
+    },
+    "category": "Billing",
+    "priority": "P0",
+    "next_tool": "draft_acknowledgment",
+    "reasoning": [
+      "[recovered decision from a malformed tool call]"
+    ],
+    "why": "The customer reports being charged twice for a monthly subscription, indicating a financial error and requesting immediate resolution. This constitutes money at risk and urgent remediation, matching the definition of a P0 priority. The issue clearly falls under Billing rather than technical or account security concerns.",
+    "confidence": 0.98,
+    "tool_calls": [],
+    "escalated": false,
+    "engine": "groq",
+    "expected_category": "Billing"
+  },
+  "full_trace": [
+    {
+      "type": "reasoning",
+      "turn": 0,
+      "text": "[recovered decision from a malformed tool call]"
+    }
+  ]
+}
