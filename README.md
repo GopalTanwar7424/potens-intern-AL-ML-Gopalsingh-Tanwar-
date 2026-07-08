@@ -134,6 +134,6 @@ live.
 ## Demo
 
 ![Reasoning Trace Viewer](https://github.com/GopalTanwar7424/potens-intern-AL-ML-Gopalsingh-Tanwar-/blob/main/docs/Screenshot%202026-07-08%20124449.png)
-![Reasoning Trace Viewer] (C:\Users\gopal\Downloads\triage_agent\docs\Screenshot 2026-07-08 124645.png)
+![Reasoning Trace Viewer](https://github.com/GopalTanwar7424/potens-intern-AL-ML-Gopalsingh-Tanwar-/blob/main/docs/Screenshot%202026-07-08%20124645.png)
 
 The Streamlit UI visualizes the full reasoning tree for each ticket, showing which tools the agent called and why.
